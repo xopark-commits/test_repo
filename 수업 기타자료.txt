@@ -1,0 +1,58 @@
+https://forms.gle/yCCroACPCd8o7vUm7
+
+SW 품질 Re-Skilling Track
+구글 chat 에서 검색
+
+ChatGPT -- codex
+구글 -- Gemini
+
+jupyter lab 교육시 사용 tool
+cmd
+python -m pip install jupyterlab 설치
+이후 jupyter lab 엔터 하면 실행
+
+새로운 cmd 열어서
+jupyter lab --generate-config
+생성된 파일을 탐색기로 찾아가서 txt파일로 열기
+ctrl+F 로 찾기 c.ServerApp.root_dir 찾아서
+
+c.ServerApp.root_dir = 'C:\\Users\20228\Downloads\xopark_project' 이런식으로 교안 다운했던 폴더 지정
+(C:\\ 처럼 \\ 2번 넣어야 함 주의할것)
+
+그러면 cmd > jupyter lab 실행시 default 폴더 변경됨
+
+
+
+1. Langflow 완전 삭제 및 클린 재설치
+터미널(CMD)을 열고 다음 명령어를 순서대로 입력하세요.
+기존 찌꺼기 강제 삭제:
+
+python -m pip uninstall langflow mpire -y
+(설치 중 언급되었던 의존성 패키지 mpire까지 함께 삭제합니다.)
+
+캐시 삭제 (오염된 설치 파일 방지):
+pip cache purge
+
+이후 재설치시 오류 나와서 문의한 결과
+
+설치 중에 발생한 OSError: [Errno 2] 에러는 윈도우의 글자 수 제한(260자) 때문에 발생하는 전형적인 문제입니다.
+langflow는 내부적으로 경로가 매우 긴 파일들을 많이 포함하고 있어, 윈도우 시스템 설정에서 "긴 경로 지원(Long Path Support)"을 활성화해야만 정상적으로 설치됩니다.
+
+1. 윈도우 긴 경로(Long Path) 활성화 방법
+가장 간단한 방법은 PowerShell을 사용하는 것입니다.
+
+시작 메뉴에서 PowerShell을 검색합니다.
+관리자 권한으로 실행을 클릭합니다.
+아래 명령어를 복사해서 붙여넣고 엔터를 칩니다:
+powershell
+New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+터미널(CMD 또는 PowerShell)을 완전히 껐다가 다시 켜세요.
+이제 다시 pip install langflow를 실행하면 에러 없이 설치될 것입니다.
+
+
+
+
+indhub.samsung.com/indhub/forum/dev-talk    
+lndhub?
+데이터 사이언스 레벨2 문제
+

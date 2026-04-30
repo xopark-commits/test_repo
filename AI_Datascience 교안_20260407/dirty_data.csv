@@ -1,0 +1,103 @@
+Order ID,Customer Name,Order Date,Product Category,Product Name,Quantity Ordered,Price Each,Order Amount,City,Country,Payment Method
+ORD1000,Alice Johnson,2023-09-28,Electronics,Laptop,3,81.69,245.07,Los Angeles,USA,PayPal
+ORD1001,Eva Green,2023-01-21,Electronics,Headphones,3,80.17,240.51,New York,USA,Bank Transfer
+ORD1002,John Doe,2023-08-03,Electronics,Laptop,3,50.12,150.35999999999999,Los Angeles,USA,Credit Card
+ORD1003,Eva Green,2023-04-10,Sports,Football,3,51.33,153.99,Houston,USA,Bank Transfer
+ORD1004,John Doe,2023-05-30,Sports,Sneakers,4,73.73,294.92,Los Angeles,,Bank Transfer
+ORD1005,,2023-10-21,Home,Chair,1,97.29,97.29,Los Angeles,USA,Credit Card
+ORD1006,John Doe,2023-10-04,Electronics,Smartphone,2,26.36,52.72,Chicago,USA,Cash
+ORD1007,Bob Lee,2023-01-22,Electronics,Headphones,1,37.38,37.38,Phoenix,USA,Bank Transfer
+ORD1008,Alice Johnson,2023-02-18,Electronics,Headphones,1,48.88,48.88,,USA,Cash
+ORD1009,John Doe,2023-06-19,Sports,Football,3,65.07,195.20999999999998,New York,,PayPal
+ORD1010,Jane Smith,2023-09-28,Home,Lamp,4,36.29,145.16,New York,USA,Cash
+ORD1011,Alice Johnson,2023-02-20,Beauty,Cream,2,18.15,36.3,Los Angeles,USA,Cash
+ORD1012,Alice Johnson,2023-11-16,Clothing,Jacket,4,56.28,225.12,,,Credit Card
+ORD1013,Jane Smith,2023-11-03,Sports,Yoga Mat,1,14.18,14.18,Phoenix,,PayPal
+ORD1014,Bob Lee,2023-06-16,Clothing,Jeans,3,25.35,76.05000000000001,Chicago,,PayPal
+ORD1015,Jane Smith,2023-11-12,Home,Lamp,2,95.4,190.8,New York,USA,Bank Transfer
+ORD1016,Jane Smith,2023-09-22,Home,Lamp,2,82.76,165.52,Phoenix,,Cash
+ORD1017,Bob Lee,2023-12-06,Clothing,Jacket,2,18.79,37.58,Houston,,Bank Transfer
+ORD1018,Jane Smith,2023-09-21,Clothing,Jeans,4,49.61,198.44,Los Angeles,,Cash
+ORD1019,Eva Green,2023-03-22,Sports,Sneakers,3,25.6,76.80000000000001,Houston,USA,PayPal
+ORD1020,Bob Lee,2023-01-02,Clothing,Jacket,4,,105.6,New York,USA,Credit Card
+ORD1021,Jane Smith,2023-04-16,Clothing,Jacket,2,56.81,113.62,,USA,Credit Card
+ORD1022,Eva Green,2023-07-10,Beauty,Perfume,4,26.64,106.56,Houston,USA,Cash
+ORD1023,John Doe,2023-06-11,Sports,Football,2,79.76,159.52,,USA,Cash
+ORD1024,Alice Johnson,2023-09-27,Home,Lamp,2,90.53,181.06,Houston,USA,Bank Transfer
+ORD1025,Alice Johnson,2023-08-03,Electronics,Headphones,3,92.97,278.90999999999997,Phoenix,USA,Credit Card
+ORD1026,Eva Green,2023-10-23,Home,Desk,4,14.07,56.28,Phoenix,USA,PayPal
+ORD1027,Eva Green,2023-12-04,Home,Lamp,1,44.98,44.98,Phoenix,USA,Cash
+ORD1028,John Doe,2023-08-05,Beauty,Lipstick,3,84.59,253.77,Chicago,USA,PayPal
+ORD1029,Eva Green,2023-02-10,Electronics,Laptop,4,64.63,258.52,New York,USA,Bank Transfer
+ORD1030,Jane Smith,2023-03-06,Electronics,Headphones,1,82.2,82.2,Los Angeles,,Bank Transfer
+ORD1031,Alice Johnson,2023-12-10,Sports,Football,1,98.82,98.82,Phoenix,USA,Bank Transfer
+ORD1032,Jane Smith,2023-03-04,Clothing,Jacket,1,27.88,27.88,,USA,Bank Transfer
+ORD1033,Eva Green,2023-06-12,Home,Chair,3,27.9,83.69999999999999,Houston,USA,PayPal
+ORD1034,Alice Johnson,2023-09-18,Clothing,T-shirt,3,79.41,238.23,New York,USA,PayPal
+ORD1035,John Doe,2023-02-10,Sports,Football,2,42.26,84.52,New York,,Credit Card
+ORD1036,John Doe,2023-11-24,Clothing,T-shirt,4,87.68,350.72,Chicago,USA,PayPal
+ORD1037,Bob Lee,2023-02-17,Home,Desk,4,39.78,159.12,Los Angeles,USA,PayPal
+ORD1038,Bob Lee,2023-08-04,Sports,Yoga Mat,3,37.99,113.97,Los Angeles,USA,Bank Transfer
+ORD1039,John Doe,2023-12-26,Clothing,T-shirt,1,75.66,75.66,,USA,Cash
+ORD1040,Bob Lee,2023-08-15,Beauty,Perfume,2,89.85,179.7,,USA,Credit Card
+ORD1041,Alice Johnson,2023-05-11,Electronics,Smartphone,1,97.45,97.45,New York,USA,PayPal
+ORD1042,Bob Lee,2023-09-12,Clothing,Jacket,1,74.96,74.96,Los Angeles,USA,PayPal
+ORD1043,Jane Smith,2023-07-26,Home,Chair,2,54.44,108.88,New York,USA,Credit Card
+ORD1044,Eva Green,2023-06-28,Electronics,Headphones,3,19.98,59.94,New York,USA,PayPal
+ORD1045,Bob Lee,2023-08-29,Clothing,Jeans,3,90.62,271.86,Houston,USA,Bank Transfer
+ORD1046,Bob Lee,2023-08-10,Electronics,Laptop,4,60.69,242.76,New York,USA,Cash
+ORD1047,Bob Lee,2023-08-25,Beauty,Perfume,1,32.44,32.44,,,Bank Transfer
+ORD1048,Alice Johnson,2023-02-05,Clothing,T-shirt,3,78.0,234.0,Los Angeles,USA,Credit Card
+ORD1049,John Doe,2023-07-06,Home,Lamp,1,16.93,16.93,Phoenix,USA,PayPal
+ORD1050,John Doe,2023-03-07,Electronics,Headphones,3,24.51,73.53,,USA,Credit Card
+ORD1051,John Doe,2023-05-14,Clothing,Jeans,2,82.73,165.46,Phoenix,USA,Credit Card
+ORD1052,Bob Lee,2023-02-13,Sports,Football,4,82.33,329.32,,USA,Cash
+ORD1053,Alice Johnson,2023-11-27,Home,Lamp,4,90.33,361.32,Los Angeles,USA,Bank Transfer
+ORD1054,Alice Johnson,2023-12-14,Clothing,Jacket,4,82.67,330.68,Houston,USA,Credit Card
+ORD1055,Eva Green,2023-08-13,Electronics,Smartphone,1,38.62,38.62,Phoenix,USA,Credit Card
+ORD1056,Eva Green,2023-05-01,Sports,Football,1,30.51,30.51,Chicago,USA,Cash
+ORD1057,Alice Johnson,2023-09-16,Electronics,Laptop,4,41.73,166.92,Chicago,USA,Bank Transfer
+ORD1058,Alice Johnson,2023-05-17,Sports,Yoga Mat,3,24.82,74.46000000000001,Phoenix,,Credit Card
+ORD1059,John Doe,2023-11-03,Sports,Sneakers,2,29.99,59.98,Los Angeles,USA,Credit Card
+ORD1060,Eva Green,2023-11-11,Electronics,Headphones,2,40.39,80.78,Los Angeles,USA,Cash
+ORD1061,Alice Johnson,2023-08-21,Sports,Football,2,29.69,59.38,Los Angeles,,Cash
+ORD1062,Alice Johnson,2023-02-21,Sports,Sneakers,4,42.73,170.92,New York,USA,Bank Transfer
+ORD1063,John Doe,2023-04-23,Home,Lamp,4,32.66,130.64,Chicago,USA,Cash
+ORD1064,Bob Lee,2023-03-22,Clothing,Jacket,1,35.64,35.64,Phoenix,,Bank Transfer
+ORD1065,John Doe,2023-05-10,Sports,Football,3,64.86,194.57999999999998,New York,,PayPal
+ORD1066,Alice Johnson,2023-08-12,Sports,Football,4,14.63,58.52,Phoenix,USA,PayPal
+ORD1067,John Doe,2023-05-06,Beauty,Lipstick,1,67.09,67.09,Chicago,USA,Credit Card
+ORD1068,Jane Smith,2023-08-06,Home,Lamp,2,57.78,115.56,,USA,Cash
+ORD1069,Eva Green,2023-09-04,Sports,Sneakers,4,59.76,239.04,,USA,PayPal
+ORD1070,Bob Lee,2023-07-03,Clothing,T-shirt,4,17.28,69.12,New York,USA,Cash
+ORD1071,Jane Smith,2023-10-21,Beauty,Cream,3,31.79,95.37,Chicago,USA,Credit Card
+ORD1072,Bob Lee,2023-04-08,Beauty,Lipstick,4,52.33,209.32,Los Angeles,USA,Bank Transfer
+ORD1073,Jane Smith,2023-08-28,Home,Chair,2,45.89,91.78,Los Angeles,USA,PayPal
+ORD1074,Alice Johnson,2023-05-04,Beauty,Perfume,4,85.18,340.72,New York,USA,Cash
+ORD1075,Eva Green,2023-12-15,Sports,Sneakers,3,26.79,80.37,Chicago,USA,Credit Card
+ORD1076,Eva Green,2023-12-12,Home,Lamp,3,63.18,189.54,Chicago,USA,Credit Card
+ORD1077,Alice Johnson,2023-05-28,Sports,Sneakers,3,82.86,248.57999999999998,,USA,Bank Transfer
+ORD1078,John Doe,2023-05-08,Sports,Yoga Mat,4,18.66,74.64,Houston,USA,PayPal
+ORD1079,Bob Lee,2023-05-09,Home,Lamp,3,94.31,282.93,New York,USA,PayPal
+ORD1080,John Doe,2023-05-31,Home,Chair,3,40.7,122.10000000000001,,USA,Cash
+ORD1081,Alice Johnson,2023-04-09,Electronics,Headphones,3,88.96,266.88,Phoenix,USA,Bank Transfer
+ORD1082,Alice Johnson,2023-12-12,Home,Chair,3,69.4,208.20000000000002,Phoenix,USA,PayPal
+ORD1083,Bob Lee,2023-03-01,Beauty,Cream,4,59.97,239.88,,,PayPal
+ORD1084,Alice Johnson,2023-10-31,Sports,Yoga Mat,1,31.77,31.77,Houston,USA,Credit Card
+ORD1085,Jane Smith,2023-02-06,Home,Chair,2,90.75,181.5,Houston,USA,Cash
+ORD1086,Bob Lee,2023-01-09,Beauty,Perfume,4,66.98,267.92,,USA,Bank Transfer
+ORD1087,John Doe,2023-10-31,Clothing,Jacket,1,41.43,41.43,Chicago,USA,Cash
+ORD1088,Alice Johnson,2023-06-01,Electronics,Laptop,4,90.74,362.96,Los Angeles,USA,PayPal
+ORD1089,Jane Smith,2023-04-26,Electronics,Laptop,2,80.19,160.38,Houston,USA,Credit Card
+ORD1090,Eva Green,2023-04-14,Beauty,Perfume,3,94.21,282.63,Los Angeles,,Bank Transfer
+ORD1091,Jane Smith,2023-04-22,Beauty,Perfume,4,62.26,249.04,Los Angeles,,Credit Card
+ORD1092,Jane Smith,2023-06-02,Electronics,Smartphone,2,94.61,189.22,Los Angeles,,Bank Transfer
+ORD1093,Jane Smith,2023-12-04,Electronics,Headphones,1,35.55,35.55,New York,USA,PayPal
+ORD1094,Eva Green,2023-07-27,Beauty,Cream,2,72.27,144.54,Phoenix,USA,Cash
+ORD1095,Eva Green,2023-06-10,Beauty,Cream,1,30.18,30.18,Houston,USA,Bank Transfer
+ORD1096,Bob Lee,2023-10-04,Clothing,Jacket,4,31.35,125.4,Houston,USA,PayPal
+ORD1097,Bob Lee,2023-05-15,Home,Desk,4,77.18,308.72,,USA,Cash
+ORD1098,Alice Johnson,2023-02-02,Beauty,Lipstick,3,69.19,207.57,Los Angeles,USA,Cash
+ORD1099,John Doe,2023-01-22,Home,Desk,4,18.43,73.72,Los Angeles,USA,PayPal
+ORD1010,Jane Smith,2023-09-28,Home,Lamp,4,36.29,145.16,New York,USA,Cash
+ORD1025,Alice Johnson,2023-08-03,Electronics,Headphones,3,92.97,278.90999999999997,Phoenix,USA,Credit Card

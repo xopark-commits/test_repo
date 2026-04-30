@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>점심 메뉴 투표 봇 - 시스템 구성도</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #fff;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #a5b4fc;
+  }
+  .header h1 {
+    font-size: 42px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  .header p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  /* ── Flow Section ── */
+  .flow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  .flow-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    text-align: center;
+    position: relative;
+  }
+
+  .flow-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44px;
+    margin-bottom: 14px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .flow-icon.sheets { background: linear-gradient(135deg, #0f9d58, #34a853); }
+  .flow-icon.python { background: linear-gradient(135deg, #306998, #ffd43b); }
+  .flow-icon.telegram { background: linear-gradient(135deg, #0088cc, #29b6f6); }
+  .flow-icon.user { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+
+  .flow-node h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .flow-node p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    color: rgba(255,255,255,0.3);
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .flow-arrow .arrow-label {
+    font-size: 10px;
+    display: block;
+    text-align: center;
+    margin-top: 4px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+  }
+  .flow-arrow-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── Cards Section ── */
+  .section-title {
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 28px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .card-emoji {
+    font-size: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-emoji.green { background: rgba(52, 211, 153, 0.15); }
+  .card-emoji.blue { background: rgba(96, 165, 250, 0.15); }
+  .card-emoji.purple { background: rgba(167, 139, 250, 0.15); }
+  .card-emoji.pink { background: rgba(244, 114, 182, 0.15); }
+  .card-emoji.yellow { background: rgba(251, 191, 36, 0.15); }
+  .card-emoji.cyan { background: rgba(34, 211, 238, 0.15); }
+
+  .card h3 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .card li {
+    font-size: 14px;
+    padding: 6px 0;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .card.green li::before { background: #34d399; }
+  .card.blue li::before { background: #60a5fa; }
+  .card.purple li::before { background: #a78bfa; }
+
+  /* ── Commands Section ── */
+  .commands {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+  .cmd {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 28px;
+    text-align: center;
+    min-width: 200px;
+    transition: transform 0.2s;
+  }
+  .cmd:hover { transform: translateY(-3px); }
+  .cmd-name {
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #60a5fa;
+    margin-bottom: 8px;
+  }
+  .cmd-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+  .cmd-example {
+    margin-top: 10px;
+    font-size: 11px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: monospace;
+    color: #a5b4fc;
+  }
+
+  /* ── Timeline Section ── */
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #60a5fa, #a78bfa, #f472b6);
+    transform: translateX(-50%);
+  }
+
+  .tl-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .tl-item:nth-child(odd) { flex-direction: row; }
+  .tl-item:nth-child(even) { flex-direction: row-reverse; }
+
+  .tl-content {
+    width: 45%;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .tl-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .tl-content p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .tl-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #302b63;
+    border: 3px solid #a78bfa;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .tl-time {
+    width: 45%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── Files Section ── */
+  .files {
+    background: rgba(0,0,0,0.25);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .files h3 {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  .file-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 14px;
+  }
+  .file-row:last-child { border: none; }
+  .file-icon { font-size: 18px; width: 24px; text-align: center; }
+  .file-name {
+    font-family: 'Courier New', monospace;
+    color: #a5b4fc;
+    flex: 1;
+  }
+  .file-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: rgba(255,255,255,0.2);
+    font-size: 12px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .header h1 { font-size: 28px; }
+    .flow { flex-direction: column; align-items: center; }
+    .flow-arrow { transform: rotate(90deg); padding: 10px 0; }
+    .cards { grid-template-columns: 1fr; }
+    .timeline::before { left: 20px; }
+    .tl-item, .tl-item:nth-child(even) { flex-direction: row; }
+    .tl-dot { left: 20px; }
+    .tl-time { display: none; }
+    .tl-content { width: 100%; margin-left: 50px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">Vibe Coding Workshop</div>
+    <h1>점심 메뉴 투표 봇</h1>
+    <p>Google Sheets + Python + Telegram 으로 만드는 자동 알림 시스템</p>
+  </div>
+
+  <!-- Flow Diagram -->
+  <div class="flow">
+    <div class="flow-node">
+      <div class="flow-icon sheets">📊</div>
+      <h3>Google Sheets</h3>
+      <p>점심 메뉴 데이터<br>투표수 관리</p>
+    </div>
+
+    <div class="flow-arrow">
+      <div class="flow-arrow-inner">
+        <span>◀━━━▶</span>
+        <span class="arrow-label">gspread</span>
+      </div>
+    </div>
+
+    <div class="flow-node">
+      <div class="flow-icon python">🐍</div>
+      <h3>Python 봇</h3>
+      <p>데이터 읽기/쓰기<br>스케줄 관리</p>
+    </div>
+
+    <div class="flow-arrow">
+      <div class="flow-arrow-inner">
+        <span>━━━━▶</span>
+        <span class="arrow-label">Bot API</span>
+      </div>
+    </div>
+
+    <div class="flow-node">
+      <div class="flow-icon telegram">✈️</div>
+      <h3>Telegram Bot</h3>
+      <p>알림 전송<br>커맨드 응답</p>
+    </div>
+
+    <div class="flow-arrow">
+      <div class="flow-arrow-inner">
+        <span>◀━━━▶</span>
+        <span class="arrow-label">채팅</span>
+      </div>
+    </div>
+
+    <div class="flow-node">
+      <div class="flow-icon user">👤</div>
+      <h3>사용자</h3>
+      <p>알림 수신<br>/today /vote</p>
+    </div>
+  </div>
+
+  <!-- Core Components -->
+  <div class="section-title">Core Components</div>
+  <div class="cards">
+    <div class="card green">
+      <div class="card-header">
+        <div class="card-emoji green">📊</div>
+        <div>
+          <h3>Google Sheets</h3>
+          <div class="card-desc">데이터 저장소</div>
+        </div>
+      </div>
+      <ul>
+        <li>점심 메뉴 목록 (날짜별)</li>
+        <li>카테고리, 제안자, 투표수</li>
+        <li>확정 여부 관리</li>
+        <li>실시간 투표 반영</li>
+      </ul>
+    </div>
+
+    <div class="card blue">
+      <div class="card-header">
+        <div class="card-emoji blue">🐍</div>
+        <div>
+          <h3>Python 스크립트</h3>
+          <div class="card-desc">핵심 로직</div>
+        </div>
+      </div>
+      <ul>
+        <li>Google Sheets 읽기/쓰기</li>
+        <li>텔레그램 메시지 포맷팅</li>
+        <li>매일 11시 자동 알림</li>
+        <li>슬래쉬 커맨드 처리</li>
+      </ul>
+    </div>
+
+    <div class="card purple">
+      <div class="card-header">
+        <div class="card-emoji purple">✈️</div>
+        <div>
+          <h3>Telegram Bot</h3>
+          <div class="card-desc">사용자 인터페이스</div>
+        </div>
+      </div>
+      <ul>
+        <li>매일 오전 점심 메뉴 알림</li>
+        <li>/today 로 현황 조회</li>
+        <li>/vote 로 메뉴 투표</li>
+        <li>/help 로 사용법 안내</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Telegram Commands -->
+  <div class="section-title">Telegram Commands</div>
+  <div class="commands">
+    <div class="cmd">
+      <div class="cmd-name">/today</div>
+      <div class="cmd-desc">오늘의 점심 메뉴<br>투표 현황 조회</div>
+      <div class="cmd-example">🍽 오늘의 점심 메뉴!<br>1. 김치찌개 - 5표 ✅</div>
+    </div>
+    <div class="cmd">
+      <div class="cmd-name">/vote</div>
+      <div class="cmd-desc">원하는 메뉴에<br>투표하기</div>
+      <div class="cmd-example">/vote 김치찌개<br>→ 투표 완료! (6표)</div>
+    </div>
+    <div class="cmd">
+      <div class="cmd-name">/help</div>
+      <div class="cmd-desc">사용 가능한<br>명령어 안내</div>
+      <div class="cmd-example">📋 명령어 목록<br>/today /vote /help</div>
+    </div>
+  </div>
+
+  <!-- Build Timeline -->
+  <div class="section-title">Build Timeline (4H)</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-content">
+        <h4>🤖 STEP 1 — 텔레그램 봇 생성</h4>
+        <p>BotFather와 대화해서 봇 만들기 & 토큰 발급</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-time">0:00 ~ 0:15</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content">
+        <h4>☁️ STEP 2 — Google Cloud 설정</h4>
+        <p>프로젝트 생성, API 활성화, 서비스 계정 키 발급</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-time">0:15 ~ 1:00</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content">
+        <h4>📊 STEP 3 — 스프레드시트 준비</h4>
+        <p>엑셀 업로드 → Google Sheets 변환 → 서비스 계정에 공유</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-time">1:00 ~ 1:10</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content">
+        <h4>🎯 STEP 4 — 바이브 코딩!</h4>
+        <p>AI에게 프롬프트 → Sheets 읽기, 텔레그램 전송, 스케줄러, 커맨드</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-time">1:20 ~ 2:50</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content">
+        <h4>✅ STEP 5 — 테스트 & 완성</h4>
+        <p>전체 동작 확인, 트러블슈팅</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-time">2:50 ~ 3:20</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content">
+        <h4>🎤 STEP 6 — 발표 & 공유</h4>
+        <p>내 봇 시연, 사용한 프롬프트 공유, 회고</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-time">3:20 ~ 4:00</div>
+    </div>
+  </div>
+
+  <!-- File Structure -->
+  <div class="section-title">Project Files</div>
+  <div class="files">
+    <h3>📁 lunch-bot/</h3>
+    <div class="file-row">
+      <div class="file-icon">🔒</div>
+      <div class="file-name">.env</div>
+      <div class="file-desc">토큰, ID 등 비밀 설정값</div>
+    </div>
+    <div class="file-row">
+      <div class="file-icon">🔑</div>
+      <div class="file-name">credentials.json</div>
+      <div class="file-desc">Google 서비스 계정 인증 키</div>
+    </div>
+    <div class="file-row">
+      <div class="file-icon">📦</div>
+      <div class="file-name">requirements.txt</div>
+      <div class="file-desc">필요한 Python 패키지 목록</div>
+    </div>
+    <div class="file-row">
+      <div class="file-icon">📊</div>
+      <div class="file-name">sheets_manager.py</div>
+      <div class="file-desc">Google Sheets 읽기 / 투표 반영</div>
+    </div>
+    <div class="file-row">
+      <div class="file-icon">✈️</div>
+      <div class="file-name">telegram_bot.py</div>
+      <div class="file-desc">텔레그램 메시지 전송</div>
+    </div>
+    <div class="file-row">
+      <div class="file-icon">⏰</div>
+      <div class="file-name">scheduler.py</div>
+      <div class="file-desc">매일 11시 자동 알림</div>
+    </div>
+    <div class="file-row">
+      <div class="file-icon">💬</div>
+      <div class="file-name">bot_commands.py</div>
+      <div class="file-desc">/today /vote /help 커맨드</div>
+    </div>
+    <div class="file-row">
+      <div class="file-icon">🚀</div>
+      <div class="file-name">main.py</div>
+      <div class="file-desc">스케줄러 + 커맨드 통합 실행</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Vibe Coding Workshop — 코드는 AI가, 아이디어는 내가 ✨
+  </div>
+
+</div>
+</body>
+</html>

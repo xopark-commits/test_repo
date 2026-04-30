@@ -1,0 +1,27 @@
+8721168910:AAGrqszkD0xqrffNMVUVW-nQVAOcfbcTgPk
+
+xo781227_bot
+
+https://api.telegram.org/bot8721168910:AAGrqszkD0xqrffNMVUVW-nQVAOcfbcTgPk/getUpdates
+
+"update_id": 202864047
+
+안녕하세요! 점심 메뉴 알림 봇입니다.
+당신의 Chat ID는 2109975636 입니다.
+/lunch 명령어를 입력하면 메뉴를 확인하실 수 있습니다.
+
+
+sheet ID : 16EnqPLkdpFAOM7VmMygA3FdwJKciiNTy
+스프레드 시트 : 1FB_oISUsxqP4wqQhM0UhIF5SQeNlpLapREsyrNmHCV8
+
+"client_email": "lunch-bot@gen-lang-client-0160691215.iam.gserviceaccount.com",
+
+
+
+
+  "client_id": "100787731329880509816",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lunch-bot%40gen-lang-client-0160691215.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
